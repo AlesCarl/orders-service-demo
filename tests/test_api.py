@@ -11,3 +11,10 @@ def test_get_orders():
     body = response.json()
     assert len(body) == 2
     assert body[0] == {"id": 1, "customer": "Mario Rossi", "amount": "49.90"}
+
+
+
+def test_health():
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "UP"}
