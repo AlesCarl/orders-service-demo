@@ -17,3 +17,8 @@ def list_orders():
         {"id": o.id, "customer": o.customer, "amount": str(o.amount)}
         for o in service.find_all()
     ]
+
+
+@app.get("/health")
+def health():
+    return {"status": "UP"}    
